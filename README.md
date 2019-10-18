@@ -1,1 +1,2 @@
-FullStack Online course
+FullStack Online course from Helsinki University.
+
