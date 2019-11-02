@@ -7,11 +7,14 @@ import ReactDOM from 'react-dom';
 
 const App = () => {
 	
-	const course = 'Half Stack application development '
+
 	
 	const parts =  [
 		{
-			name:'Fundamentals of React ',
+			name:'Half Stack application development.'
+		},
+		{
+			name:'Fundamentals of React',
 			exercises: 10
 		},
 		
@@ -30,11 +33,11 @@ const App = () => {
 	return (
 		<div>
 			
-			<Header course={course} />
+			<Header course={parts[0].name} />
 			
-			<Content part1={parts[0].name} exercise1={parts[0].exercises} part2={parts[1].name} exercise2={parts[1].exercises} part3={parts[2].name} exercise3={parts[2].exercises}/>
+			<Content part1={parts[1].name} exercise1={parts[1].exercises} part2={parts[2].name} exercise2={parts[2].exercises} part3={parts[3].name} exercise3={parts[3].exercises}/>
 			
-			<Total exercise1={parts[0].exercises} exercise2={parts[1].exercises} exercise3={parts[2].exercises}/>
+			<Total exercise1={parts[1].exercises} exercise2={parts[2].exercises} exercise3={parts[3].exercises}/>
 			
 		</div>
 
