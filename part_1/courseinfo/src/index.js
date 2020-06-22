@@ -14,7 +14,7 @@ const App = () => {
 			name:'Half Stack application development.'
 		},
 		{
-			name:'Fundamentals of React. This trial is added .',
+			name:'Fundamentals of React.',
 			exercises: 10
 		},
 		
