@@ -7,19 +7,16 @@ import './index.css';
 
 const App = () => {
 	
-
-	
-	const parts =  [
+	const course = {
+		
+		name: 'Half Stack application development',
+	 	parts:[
 		{
-			name:'Half Stack application development.'
-		},
-		{
-			name:'Fundamentals of React.',
+			name:'Fundamentals of React',
 			exercises: 10
 		},
 		
 		{
-		
 			name:'Using props to pass data ',
 			exercises: 7
 		},
@@ -29,65 +26,44 @@ const App = () => {
 			exercises:14
 		}
 	]
-	
+}
 	return (
 		<div>
+			<Header name={course.name} />
 			
-			<Header course={parts[0].name} />
+			<Content name1={course.parts[0].name} exercise1={course.parts[0].exercises} 
+					 name2={course.parts[1].name} exercise2={course.parts[1].exercises} 
+					 name3={course.parts[2].name} exercise3={course.parts[2].exercises}/>
 			
-			<Content part1={parts[1].name} exercise1={parts[1].exercises} part2={parts[2].name} exercise2={parts[2].exercises} part3={parts[3].name} exercise3={parts[3].exercises}/>
-			
-			<Total exercise1={parts[1].exercises} exercise2={parts[2].exercises} exercise3={parts[3].exercises}/>
+			<Total exercise1={course.parts[0].exercises} exercise2={course.parts[1].exercises} exercise3={course.parts[2].exercises}/>
 			
 		</div>
-
-	
 	)
 }
 
-const Header = (props) => (
-	
-	<div>
-		<h1>{props.course}</h1>
-	
-	</div>
+const Header = (props) => <h1>{props.name}</h1>
 
-)
-
-const Content = (props) => (
+const Content = (props) => {
 	
+	return(
 	<>
 		
-		<Part   part={props.part1} exercise={props.exercise1}/>
+		<Part   name={props.name1} exercise={props.exercise1}/>
 		
-		<Part   part={props.part2} exercise={props.exercise2}/>
+		<Part   name={props.name2} exercise={props.exercise2}/>
 		
-		<Part   part={props.part3} exercise={props.exercise3}/>
+		<Part   name={props.name3} exercise={props.exercise3}/>
 	
-    </>
+	</>
+	)
+}
+
+const Part = (props) => <p>{props.name} {props.exercise}</p>	
+
+
+
+const Total = (props) => <p>Number of exercises {props.exercise1 + props.exercise2 + props.exercise3}</p>
 	
-	
-
-)
-
-const Part = (props) => (
-	
-		<p>{props.part} {props.exercise}</p>	
-)
-
-
-const Total = (props) => (
-	
-	<div>
-		<p>Number of exercises {props.exercise1 + props.exercise2 + props.exercise3}</p>
-	
-	</div>
-
-)
-
-
-
-
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
