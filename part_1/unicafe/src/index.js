@@ -1,6 +1,6 @@
 import React ,{useState} from 'react'; 
 import ReactDOM from 'react-dom'; 
-import styled from 'styled-components'; 
+
 import { useTable } from 'react-table';
 import './index.css';
 
@@ -53,13 +53,7 @@ const Button = ({ handleClick, text }) => <button onClick={handleClick}> {text} 
 
 const App = () => {
      
-    /* const [good, setGood] = useState(3)
-    const [neutral, setNeutral] = useState(3)
-    const [bad, setBad] = useState(0)
-    const [all, setAll] = useState(0) */
-    /* const [feedback, setFeedback] = useState({good:0, neutral:0,bad:0,
-        average: () => this.good + this.neutral + this.bad ,
-        positive:0}) */
+    
     const obj = {
         good: 0,
         neutral:0,
@@ -101,10 +95,6 @@ const App = () => {
         setAll(all + 1)
     }
     
-   
-
-   
-    
     
     const columns = React.useMemo(
         () => [
@@ -140,31 +130,7 @@ const App = () => {
     )
    
     
-    //const datam = React.useMemo()
-    //const [originalData] = React.useState(data)
-
-    /* const data = React.useMemo(
-        
-        () => [
-            {
-                good: obj.good,
-                neutral: obj.neutral,
-                bad: obj.bad,
-                
-            },
-            {
-                col1: 'react-table',
-                col2: 'rocks',
-                age: 23,
-            },
-            {
-                col1: 'whatever',
-                col2: 'you want',
-                age: 23,
-            },
-        ],
-        []
-    ) */
+    
    
     return (
         <>
