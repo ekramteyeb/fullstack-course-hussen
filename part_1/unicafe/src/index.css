@@ -5,9 +5,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: auto;
+  width:80%;
+  background-color: aquamarine;
+  color:brown;
+  padding: 11px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+table thead {
+  border: solid 1px red;
 }
