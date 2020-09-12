@@ -118,7 +118,7 @@ const  App = () => {
   }
 
   
-// returns filterd persons name based on a given search text
+// returns filterd person names based on a given search text
   const searchPersons = persons.filter(person => person.name.toLowerCase().includes(search.toLowerCase()))  
 
   return (
