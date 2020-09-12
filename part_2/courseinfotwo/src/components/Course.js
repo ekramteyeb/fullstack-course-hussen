@@ -4,7 +4,7 @@ const Header = ({ course }) => <h3>{course.name}</h3>
 
 const Total = ({ course }) => {
 
-    const total = course.parts.reduce((a, b, index) => a + b.exercises, 0)
+    const total = course.parts.reduce((a, b) => a + b.exercises,0)
 
     return (
 

@@ -47,17 +47,16 @@ const App = () => {
       ]
     }
   ]
-  //to avoid hard coding to display each individual course , I created 'Display' component which handles to 
-  //to iterate over individual course object and display them 
+  
   
   const Display =  ({courses}) =>{
-        const display = courses.map(course => <Course key={course.id} course={course} />)
-        return display
+      return courses.map(course => <Course key={course.id} course={course} />)
   }
+
   return (
     <div>
       <h1>Web development curriculum</h1>
-      <Display courses={courses}/>
+      <Display courses={courses} />
     </div>
   )
 }
