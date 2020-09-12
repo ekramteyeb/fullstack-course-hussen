@@ -13,36 +13,26 @@ const  App = () => {
   const [search, setSearch] = useState('')
   const [weather, setWeather] = useState({})
   
+  const showCountries = countries.filter(country => country.name.toLowerCase().includes(search.toLowerCase()))
+  const country = showCountries.length === 1 ? showCountries[0].name : ''
+  const url = 'http://api.weatherstack.com/current?'
   
- 
-  const hook = () => {
+  const hookCountries = () => {
     axios
       .get('https://restcountries.eu/rest/v2/all')
       .then(response => {
         setCountries(response.data)
-        console.log('Countries fetched')
       })
   }
+  useEffect(hookCountries, [])
+ 
 
-  /* const handleName = () => {
-    
-  } */
-  //filters countries based on search criteria 
-  
-    const showCountries = countries.filter(country => country.name.toLowerCase().includes(search.toLowerCase()))
-    
-   const country =  showCountries.length === 1 ? showCountries[0].name : ''
-  
-  
-  
-  
   const hookWeather = () => {
-    console.log('Weather request tried,but not successful')
     if(country === ''){
       return
     }else{
     axios
-      .get(`http://api.weatherstack.com/current?access_key=${API_KEY}&query=${country}`) 
+      .get(`${url}access_key=${API_KEY}&query=${country}`) 
       .then(response => {
         if (response.success === false){
           console.log('there is error')
@@ -55,7 +45,7 @@ const  App = () => {
             icon:wResponse.weather_icons[0],
             w_direction:wResponse.wind_dir,
           }
-          console.log('Weather request successful')
+          
           setWeather(weatherObj)
         }
       })
@@ -65,8 +55,7 @@ const  App = () => {
     }
   }
 
-  useEffect(hook,[])
-  useEffect(hookWeather,[country])
+  useEffect(hookWeather, [country])
   
   const handleSearch = (event) => {
         setSearch(event.target.value)
@@ -78,10 +67,9 @@ const  App = () => {
   } 
   return (
     <div>
-      <h1>Hello Countries</h1>
+      <h1>Countries current weather</h1>
       <Filter handleSearch={handleSearch} />
       {(search === '') ? '' : <Countries countries={showCountries} weather={weather}  handleShowCountryClick={handleShowCountryClick} number={10} />}
-      {console.log('how many times')}
     </div>
   )
 }
